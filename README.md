@@ -1,6 +1,6 @@
 # 🌟 Evently: The Future of Event Planning 🚀
 
-![Evently Banner](https://via.placeholder.com/1200x400?text=Evently+AI+Based+Platform)
+
 <div align="center">
 
   ![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge&logo=react)
