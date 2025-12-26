@@ -132,18 +132,6 @@ Follow these steps to set up the project locally.
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Home Page & Event Listing
-*(Add Screenshot Here)*
-
-### 💬 AI Chatbot in Action
-*(Add Screenshot Here)*
-
-### 💳 PayPal Payment Gateway
-*(Add Screenshot Here)*
-
----
 
 ## 🤝 Contributing
 
