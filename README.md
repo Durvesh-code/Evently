@@ -163,5 +163,5 @@ Contributions are what make the open-source community such an amazing place to l
 * **Email:** patil.durvesh8668@gmail.com
 
 <div align="center">
-  <sub>Built with ❤️ by the Evently Team</sub>
+  <sub>Built with ❤️ by Durvesh</sub>
 </div>
