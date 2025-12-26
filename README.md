@@ -160,7 +160,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 **Durvesh Manohar Patil**
 * **GitHub:** [Durvesh-code](https://github.com/Durvesh-code)
-* **Email:** (Add your email if you want)
+* **Email:** patil.durvesh8668@gmail.com
 
 <div align="center">
   <sub>Built with ❤️ by the Evently Team</sub>
