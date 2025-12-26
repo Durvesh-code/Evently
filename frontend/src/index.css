@@ -1,0 +1,180 @@
+/* src/index.css */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  /* MODIFIED: Set the base dark background for the whole app */
+  background-color: #0f0f23;
+  color: #e0e0ff; /* Default light text */
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Cyberpunk Auth Form Styles --- */
+
+.auth-container {
+  /* This container is inside the modal, so it's simpler */
+  width: 100%;
+}
+
+/* The "Login" / "Register" Title */
+.auth-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900; /* MODIFIED: Bolder */
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  letter-spacing: 2px; /* MODIFIED: More spacing */
+  text-transform: uppercase;
+
+  /* MODIFIED: "Ultra Crazy" Neon Gradient Text */
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00, #FF00FF);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* MODIFIED: Neon Glow Animation */
+  animation: gradient-flow 3s ease-in-out infinite, text-glow 2s ease-in-out infinite alternate;
+}
+
+/* --- Form Groups (Label + Input) --- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Form Labels ("Email:", "Password:") --- */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600; /* MODIFIED */
+  color: #e0e0ff; /* MODIFIED: Brighter text */
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.5); /* MODIFIED: Added glow */
+}
+
+/* --- Form Input Fields (Glass) --- */
+.form-group input {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* MODIFIED: Brighter border */
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* --- "Crazy" Glowing Focus Effect (Cyan) --- */
+.form-group input:focus {
+  border-color: #00FFFF; /* MODIFIED: Accent color (Cyan) */
+  background-color: rgba(0, 0, 0, 0.5); /* MODIFIED: Darker */
+  
+  /* MODIFIED: "Glow" (Cyan) */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 0 1px #00FFFF;
+  outline: none;
+}
+
+/* --- "Crazy" Animated Gradient Button --- */
+.auth-button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 50px; /* MODIFIED: Pill shape */
+  
+  /* MODIFIED: The Animated Gradient */
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FF00FF);
+  background-size: 200% 200%;
+  
+  color: #000000; /* MODIFIED: Black text */
+  font-size: 1.1rem;
+  font-weight: 800; /* MODIFIED: Bolder */
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative; /* MODIFIED: For shine effect */
+  overflow: hidden; /* MODIFIED: For shine effect */
+  text-transform: uppercase;
+  
+  /* MODIFIED: Link to the animation */
+  animation: gradient-flow 3s ease infinite;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); /* MODIFIED: Base glow */
+}
+
+/* MODIFIED: Added Shine Effect */
+.auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+/* --- Keyframes for the animation --- */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* MODIFIED: Added theme glow */
+@keyframes text-glow {
+  0% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.5); }
+  100% { text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.6); }
+}
+
+.auth-button:hover {
+  /* MODIFIED: Cyberpunk hover effect */
+  background-position: right center;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 0 30px rgba(255, 0, 255, 0.8),
+    0 0 60px rgba(0, 255, 255, 0.4);
+}
+
+.auth-button:hover::before {
+  left: 100%;
+}
+
+/* --- The "Switch" links at the bottom --- */
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #b8b8ff; /* MODIFIED: Brighter */
+}
+
+.auth-switch-link {
+  color: #00FFFF; /* MODIFIED: Accent color (Cyan) */
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); /* MODIFIED: Added glow */
+}
+
+.auth-switch-link:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* --- Style for Error/Success Messages --- */
+.message {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 10px;
+  border-radius: 8px;
+  /* This style is already perfect for the theme */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}

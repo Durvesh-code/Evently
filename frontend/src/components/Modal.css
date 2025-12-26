@@ -1,0 +1,55 @@
+/*
+ * ========================================
+ * "ULTRA CRAZY" CYBERPUNK MODAL STYLES
+ * ========================================
+ */
+
+/* --- 1. The Full-Screen Dark Overlay --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent BG */
+  backdrop-filter: blur(5px); /* Blur the content behind it */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* Must be on top of everything */
+}
+
+/* --- 2. The Glass-Morphism Content Box --- */
+.modal-content {
+  position: relative;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  
+  /* Glass Morphism (from our theme) */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 3. The "X" Close Button --- */
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #e0e0ff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2001; /* On top of modal content */
+}
+
+.modal-close-button:hover {
+  color: #FF00FF; /* Neon Pink */
+  transform: scale(1.2) rotate(90deg);
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+}

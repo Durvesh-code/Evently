@@ -1,0 +1,192 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
+  background-color: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  height: 80px; /* Set a fixed height */
+  box-sizing: border-box;
+}
+
+.navbar.scrolled {
+  background: rgba(16, 16, 35, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* === MODIFIED LOGO STYLE === */
+.navbar-logo {
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 1px;
+  
+  /* 1. Removed gradient, set to solid white */
+  color: #ffffff; 
+  
+  /* 2. Replaced animation with a simple glow and transition */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+/* === NEW HOVER EFFECT FOR LOGO === */
+.navbar-logo:hover {
+  /* 3. New hover effect with theme colors and scale */
+  transform: scale(1.02);
+  text-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 0.8);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0e0ff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.5);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FF00FF);
+  background-size: 200% 200%;
+  color: #000000;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+/* src/components/Navbar.css */
+
+/* 1. A cleaner, 'Glass' style button */
+.nav-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  /* Dark semi-transparent background allows video to show through */
+  background: rgba(255, 255, 255, 0.08); 
+  backdrop-filter: blur(8px); /* Blurs the video behind the button */
+  
+  /* Subtle border instead of solid color */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  /* White text is strictly required for professional dark modes */
+  color: #ffffff; 
+  
+  text-decoration: none;
+  padding: 10px 24px; /* Slightly smaller vertical padding for elegance */
+  border-radius: 50px;
+  font-weight: 600; /* Reduced from 800 for a cleaner look */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Hover effect: The button lights up with the gradient */
+.nav-link-button:hover {
+  /* This brings back your theme colors but only when interacting */
+  background: linear-gradient(45deg, #00dbde, #fc00ff); 
+  border-color: transparent;
+  color: #ffffff;
+  
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(0, 219, 222, 0.6), /* Cyan Glow */
+    0 0 30px rgba(252, 0, 255, 0.4); /* Purple Glow */
+}
+
+/* 3. Remove the ::before pseudo-element if you used the previous code */
+/* The new hover effect above handles the transition better without the ::before slide */
+.nav-link-button::before {
+  display: none;
+}
+
+.nav-link-button:hover::before {
+  left: 100%;
+}
+
+.navbar-welcome {
+  color: #e0e0ff;
+  font-size: 0.9rem;
+  margin-left: 15px;
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.5);
+  display: block;
+}
+
+/* This keyframe is still used by other elements in the site */
+@keyframes text-glow {
+  0% { text-shadow: 0 0 15px rgba(255, 0, 255, 0.5); }
+  100% { text-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 35px rgba(255, 0, 255, 0.6); }
+}
+
+@media (max-width: 992px) {
+  .navbar { padding: 20px; }
+  .navbar-links { gap: 10px; }
+  .nav-link, .nav-link-button { padding: 10px 15px; font-size: 0.9rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 15px; }
+  .navbar-logo { font-size: 1.8rem; }
+  .nav-link span,
+  .nav-link-button span { display: none; }
+  .navbar-welcome { display: none; }
+  .nav-link, .nav-link-button { padding: 12px; font-size: 1.2rem; }
+  .nav-link-button { border-radius: 50%; }
+  .navbar-links { gap: 8px; }
+}

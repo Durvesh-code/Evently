@@ -1,0 +1,429 @@
+/*
+ * ========================================
+ * CYBERPUNK EVENTSPAGE STYLES
+ * With Slider & Motion Animations
+ * ========================================
+ */
+
+/* --- Global Reset & Base --- */
+html, body {
+  padding: 0;
+  width: 100%;
+  background-color: #0f0f23;
+  box-sizing: border-box;
+  color: #e0e0ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*, *:before, *:after { box-sizing: inherit; }
+
+/* --- Animated Background --- */
+.events-page-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated background elements */
+.events-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  animation: backgroundPulse 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Header Styling --- */
+.events-page-container h1 {
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  
+  /* Neon Gradient Text */
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00, #FF00FF);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 3s ease-in-out infinite, text-glow 2s ease-in-out infinite alternate;
+  
+  position: relative;
+  z-index: 2;
+}
+
+.events-page-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #00FFFF, #FF00FF, transparent);
+  border-radius: 2px;
+}
+
+.events-page-container p {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #e0e0ff;
+  margin-bottom: 60px;
+  text-shadow: 0 0 10px rgba(224, 224, 255, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Event Grid --- */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Cyberpunk Event Card --- */
+.event-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: perspective(1000px) rotateX(0) rotateY(0) scale(1);
+}
+
+/* Floating animation for cards */
+.event-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.event-card:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+.event-card:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+/* Link covers entire card */
+.event-card-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  text-decoration: none;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* --- Image Container & Slider Styles --- */
+.event-card-image-container {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0f0f23;
+  z-index: 1;
+}
+
+/* Slick slider full height setup */
+.event-card-image-container .slick-slider,
+.event-card-image-container .slick-list,
+.event-card-image-container .slick-track {
+  height: 100% !important;
+}
+
+.event-card-image-container .slick-slide {
+  height: 100% !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.event-card-image-container .slick-slide > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Images styling */
+.event-card-image-container img,
+.event-card-image-container .static-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.1);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* --- Event Card Content Overlay --- */
+.event-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(
+    to top, 
+    rgba(15, 15, 35, 0.95) 0%, 
+    rgba(15, 15, 35, 0.8) 30%, 
+    rgba(15, 15, 35, 0.4) 70%, 
+    transparent 100%
+  );
+  padding: 30px 25px 25px 25px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 3;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.event-card-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  background: linear-gradient(90deg, #ffffff, #e0e0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.event-card-content p {
+  font-size: 1.1rem;
+  color: #b8b8ff;
+  margin: 4px 0;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Slick Dots Styling (Cyberpunk) --- */
+.slick-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex !important;
+  gap: 8px;
+  z-index: 4;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: opacity 0.3s ease;
+}
+
+.slick-dots li {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+}
+
+.slick-dots li button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.slick-dots li button:before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.slick-dots li.slick-active button:before {
+  background: #00FFFF;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.4);
+  transform: scale(1.2);
+}
+
+/* --- INSANE Hover Effects --- */
+.event-card:hover {
+  transform: perspective(1000px) scale(1.05) translateY(-15px);
+  box-shadow: 
+    0 25px 50px rgba(255, 0, 255, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 30px rgba(0, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.event-card:hover .event-card-image-container img {
+  transform: scale(1.12);
+  filter: brightness(1.05) contrast(1.05) saturate(1.15);
+}
+
+.event-card:hover .event-card-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.event-card:hover .slick-dots {
+  opacity: 0;
+}
+
+/* Add cyberpunk border glow on hover */
+.event-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, transparent 70%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.event-card:hover::after {
+  opacity: 1;
+}
+
+/* --- Loading & Empty States --- */
+.events-page-container h1:only-child {
+  font-size: 3rem;
+  margin-top: 100px;
+  background: linear-gradient(45deg, #FF00FF, #00FFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 3s ease-in-out infinite;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes text-glow {
+  0% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.5); }
+  100% { text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.6); }
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .events-page-container h1 {
+    font-size: 3rem;
+  }
+  
+  .event-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .event-card {
+    height: 400px;
+  }
+  
+  .event-card:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+  
+  .event-card-content {
+    transform: translateY(0);
+    opacity: 1;
+    background: linear-gradient(
+      to top, 
+      rgba(15, 15, 35, 0.95) 0%, 
+      rgba(15, 15, 35, 0.9) 50%, 
+      transparent 100%
+    );
+  }
+  
+  .slick-dots {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-page-container {
+    padding: 20px 15px;
+  }
+  
+  .events-page-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .events-page-container p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  
+  .event-card-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .event-card-content p {
+    font-size: 1rem;
+  }
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #FF00FF, #00FFFF);
+  border-radius: 6px;
+  border: 2px solid #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00FFFF, #FF00FF);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}

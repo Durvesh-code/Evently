@@ -1,0 +1,52 @@
+/* --- 1. NEWLY ADDED: Global Styles --- */
+/* This sets the background for your entire app */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  /* This is the dark background from your theme */
+  background-color: #0f0f23;
+
+  /* This sets the default text color to match */
+  color: #e0e0ff;
+}
+
+/* Inherit box-sizing for all elements */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* --- 2. YOUR EXISTING: Page Content Layout --- */
+/* (With the 100px/80px padding we added before) */
+
+.page-content {
+  padding: 20px; /* 20px padding on the sides and bottom */
+  /* 80px for the navbar + 20px space = 100px */
+  padding-top: 100px;
+}
+
+/* --- 3. YOUR EXISTING: Page-Specific Layout Overrides --- */
+
+/* This targets the <main> element ONLY when inside a .events-page-wrapper */
+/* --- 3. YOUR EXISTING: Page-Specific Layout Overrides --- */
+
+/* This targets the <main> element ONLY when inside a .events-page-wrapper */
+.events-page-wrapper .page-content {
+  padding: 0;
+  /* MODIFIED: Was 80px, set to 0 to remove all top space */
+  padding-top: 0;
+  background: #0f0f23; /* Match the cyberpunk background */
+}
+
+/* This targets the <main> element ONLY when inside a .homepage-wrapper */
+.homepage-wrapper .page-content {
+  padding: 0;
+}

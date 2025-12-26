@@ -1,0 +1,218 @@
+/* src/components/AdminLayout.css */
+
+/* This is the main container (holds sidebar + content) */
+.admin-layout {
+  position: relative;
+  /* Space for our fixed 80px navbar */
+  padding-top: 80px; 
+}
+
+/* --- The Sidebar (User's fixed layout) --- */
+.admin-sidebar {
+  width: 260px; /* Our original width */
+  height: calc(100vh - 80px); /* Full height minus navbar */
+  background: #1a1a2e; /* Our theme background */
+  border-right: 1px solid rgba(255, 255, 255, 0.2); /* Our theme border */
+  padding: 20px 15px; /* User's padding */
+  position: fixed; /* User's layout choice */
+  left: 0;
+  top: 80px; /* Sit below navbar */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 900; /* Below navbar (1000) */
+  overflow-x: hidden;
+}
+
+.admin-sidebar.collapsed {
+  width: 80px;
+}
+
+/* --- Sidebar Header --- */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px 20px 20px; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+.admin-sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 0 0 20px 0;
+}
+
+.sidebar-header h2 {
+  color: #00FFFF; /* Our theme color */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* --- Toggle Button --- */
+.toggle-btn {
+  background: linear-gradient(45deg, #FF00FF, #00FFFF); /* Our theme gradient */
+  border: none;
+  border-radius: 8px;
+  color: #000; /* Black text */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* --- Navigation Links --- */
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 15px;
+  color: #b8b8ff;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.admin-sidebar.collapsed .admin-sidebar-link {
+  padding: 15px;
+  justify-content: center;
+  gap: 0;
+}
+
+.admin-sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #00FFFF;
+}
+
+.admin-sidebar-link.active {
+  background: #FF00FF; /* Our theme active color */
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.admin-sidebar.collapsed .admin-sidebar-link.active {
+  background: rgba(255, 0, 255, 0.3);
+  box-shadow: none;
+}
+
+/* --- Icon Wrapper --- */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.admin-sidebar-link .icon-wrapper svg {
+  font-size: 1.2rem;
+}
+
+/* --- Text --- */
+.admin-sidebar-link span {
+  font-weight: 500;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+.admin-sidebar.collapsed .admin-sidebar-link span {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* --- Tooltip --- */
+.tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: #1a1a2e; /* Our theme bg */
+  color: #e0e0ff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.tooltip::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #1a1a2e;
+}
+.admin-sidebar.collapsed .admin-sidebar-link:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(15px);
+}
+
+/* --- The Main Content Area --- */
+.admin-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #0f0f23; /* Our theme bg */
+  overflow-y: auto;
+  height: calc(100vh - 80px); /* Full height minus navbar */
+  
+  /* CRITICAL: Add margin to offset sidebar */
+  margin-left: 260px; 
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When collapsed, pull content margin left */
+.admin-layout.collapsed .admin-content {
+  margin-left: 80px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* On mobile, force collapsed state */
+  .admin-sidebar {
+    width: 80px;
+  }
+  .admin-layout .admin-content {
+    margin-left: 80px;
+  }
+  /* Hide the toggle button on mobile */
+  .toggle-btn,
+  .sidebar-header h2 {
+    display: none;
+  }
+  .sidebar-header {
+    justify-content: center;
+  }
+  .admin-sidebar.collapsed .admin-sidebar-link {
+    padding: 15px; /* Ensure padding is correct */
+  }
+}

@@ -1,0 +1,117 @@
+/* src/pages/UserDashboard.css */
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+/* MODIFIED: Header text */
+.dashboard-header h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  background: linear-gradient(45deg, #FF00FF, #00FFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-glow 2s ease-in-out infinite alternate;
+}
+
+.dashboard-header p {
+  font-size: 1.2rem;
+  color: #b8b8ff; /* MODIFIED */
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.3); /* MODIFIED */
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* MODIFIED: Glass Card Style */
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(255, 0, 255, 0.3);
+}
+
+.dashboard-card h1 {
+  font-size: 3rem;
+  color: #00FFFF; /* MODIFIED */
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* MODIFIED */
+  margin: 10px 0;
+}
+
+.dashboard-card h3 {
+  font-size: 1.5rem;
+  color: #ffffff; /* MODIFIED */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.dashboard-card p, .dashboard-card li {
+  font-size: 1rem;
+  color: #b8b8ff; /* MODIFIED */
+  line-height: 1.6;
+}
+
+/* MODIFIED: Special 'Create Event' Card */
+.card-create-event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #FF00FF, #00FFFF); /* MODIFIED */
+  color: #000000; /* MODIFIED */
+  cursor: pointer;
+}
+
+.card-create-event .icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.card-create-event h3 {
+  color: #000000; /* MODIFIED */
+}
+
+.card-create-event p {
+  color: #333333; /* MODIFIED */
+}
+
+/* MODIFIED: Event list items */
+.event-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.event-list-item:last-child {
+  border-bottom: none;
+}
+.event-list-item span {
+  font-weight: 600;
+  color: #ffffff; /* MODIFIED */
+}
+.event-list-item .date {
+  font-size: 0.9rem;
+  color: #b8b8ff; /* MODIFIED */
+}

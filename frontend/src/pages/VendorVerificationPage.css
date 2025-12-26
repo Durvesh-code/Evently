@@ -1,0 +1,220 @@
+/* src/pages/VendorVerificationPage.css */
+
+.verification-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  
+  /* Glass Morphism */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.verification-container h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+  /* Neon Gradient Text (from theme) */
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00, #FF00FF);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 3s ease-in-out infinite, text-glow 2s ease-in-out infinite alternate;
+}
+
+.verification-container p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #b8b8ff;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.3);
+}
+
+.verification-container h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FF00FF;
+  border-bottom: 2px solid #00FFFF;
+  padding-bottom: 10px;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+/* --- Form Fields (re-used from CreateEventPage.css) --- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e0e0ff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.5);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #e0e0ff;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  border-color: #00FFFF;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 0 1px #00FFFF;
+  outline: none;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Checkbox Grid --- */
+.checkbox-group label {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* --- ALIGNMENT FIX --- */
+.checkbox-label {
+  /* 1. Changed to 'grid' */
+  display: grid;
+  /* 2. Set column sizes: 20px for box, rest for text */
+  grid-template-columns: 20px 1fr; 
+  align-items: center; /* 3. Vertically center items */
+  gap: 10px;
+  
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #e0e0ff;
+  font-weight: 500;
+  text-transform: none;
+  font-size: 1rem;
+}
+
+.checkbox-label:hover {
+  border-color: #00FFFF;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* --- ALIGNMENT FIX --- */
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #FF00FF;
+  margin: 0; /* 4. Remove default margins */
+  justify-self: center; /* 5. Center checkbox in its column */
+}
+
+/* --- NEW: Style for the span --- */
+.checkbox-label span {
+  line-height: 1.2; /* 6. Ensure text height is consistent */
+}
+
+/* --- Dropzone & Image Preview (re-used) --- */
+.dropzone {
+  border: 2px dashed #FF00FF;
+  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.dropzone p {
+  font-size: 1.2rem; color: #e0e0ff; text-shadow: 0 0 5px rgba(224, 224, 255, 0.5); margin: 0;
+}
+.dropzone:hover {
+  background-color: rgba(0, 0, 0, 0.4); box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+.image-preview-container {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; margin-top: 20px;
+}
+.image-preview {
+  position: relative; width: 100%; padding-top: 100%; border-radius: 8px; overflow: hidden;
+}
+.image-preview img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.remove-image-button {
+  position: absolute; top: 5px; right: 5px; background: rgba(255, 0, 255, 0.9);
+  color: #000000; border: none; border-radius: 50%; width: 25px; height: 25px;
+  cursor: pointer; font-weight: bold; font-size: 1rem; display: flex;
+  align-items: center; justify-content: center; transition: all 0.3s ease;
+}
+.remove-image-button:hover {
+  transform: scale(1.2); box-shadow: 0 0 10px rgba(255, 0, 255, 1);
+}
+.message {
+  text-align: center; font-size: 0.9rem; padding: 10px; border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1); color: #ffffff; margin-bottom: 1.5rem;
+}
+
+/* --- Main Submit Button (re-used from CreateEventPage) --- */
+.submit-button {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #FF00FF, #00FFFF, #FF00FF);
+  background-size: 200% 200%;
+  color: #000000;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: gradient-flow 3s ease infinite;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.submit-button:hover {
+  background-position: right center;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.4);
+}
+
+/* --- Keyframes (from theme) --- */
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes text-glow {
+  0% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.5); }
+  100% { text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.6); }
+}
