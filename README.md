@@ -16,14 +16,6 @@
 
 ---
 
-## 📖 Table of Contents
-- [✨ About the Project](#-about-the-project)
-- [🔥 Key Features](#-key-features)
-- [⚙️ System Architecture](#-system-architecture)
-- [🛠️ Tech Stack](#-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-- [🤝 Contributing](#-contributing)
-- [📬 Contact](#-contact)
 
 ---
 
