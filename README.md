@@ -32,7 +32,7 @@
 **Evently** is not just another booking app. It is a smart ecosystem that bridges the gap between **Users**, **Vendors**, and **Admins**.
 
 Solved the chaos of manual planning by integrating:
-* **🤖 AI Chatbot:** Uses **RAG (Retrieval-Augmented Generation)** to answer questions based on *real-time* database availability.
+* **🤖 AI Chatbot:** Uses **LLM-based assistant with live DB access** to answer questions based on *real-time* database availability.
 * **💸 Secure Payments:** Fully functional **PayPal Sandbox** integration for safe transactions.
 * **🛡️ Vendor Verification:** Admin-controlled approval system to ensure trust.
 
