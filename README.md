@@ -7,7 +7,7 @@
   ![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot)
   ![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql)
   ![PayPal](https://img.shields.io/badge/Payments-PayPal%20Sandbox-00457C?style=for-the-badge&logo=paypal)
-  ![AI](https://img.shields.io/badge/AI-OpenRouter%20%2F%20RAG-FF0000?style=for-the-badge&logo=openai)
+  ![AI](https://img.shields.io/badge/AI-OpenRouter%20%2F%20Chatbot-FF0000?style=for-the-badge&logo=openai)
 
   **Connect • Plan • Celebrate**
   <br>
