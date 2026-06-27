@@ -74,7 +74,7 @@ The app follows a robust **Monolithic 3-Tier Architecture**:
 | **Frontend** | React.js, Vite, Tailwind CSS, Framer Motion, Axios |
 | **Backend** | Java 17, Spring Boot 3.x, Spring Security (JWT), Hibernate |
 | **Database** | MySQL 8.0 |
-| **AI Integration** | OpenRouter API (Grok / Gemini), RAG Implementation |
+| **AI Integration** | OpenRouter API (Grok / Gemini), Chatbot Implementation |
 | **Payments** | PayPal Sandbox API |
 | **Tools** | VS Code, Git, Maven, Postman |
 
